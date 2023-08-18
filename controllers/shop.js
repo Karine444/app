@@ -170,21 +170,6 @@ exports.getCheckout = (req, res, next) => {
                 success_url: req.protocol + '://' + req.get('host') + '/checkout/success',
                 cancel_url: req.protocol + '://' + req.get('host') + '/checkout/cancel'
             });
-
-            // console.log("============================================", a);
-            // return;
-            //
-            // return stripe.checkout.sessions.create({
-            //     payment_method_types: ['card'],
-            //     line_items: products.map(p => {
-            //         return {
-            //             price: p.productId.price * 100,
-            //             quantity: p.quantity
-            //         };
-            //     }),
-            //     success_url: req.protocol + '://' + req.get('host') + '/checkout/success',
-            //     cancel_url: req.protocol + '://' + req.get('host') + '/checkout/cancel'
-            // });
         })
         .then(session => {
             res.render('shop/checkout', {
